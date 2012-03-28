@@ -73,6 +73,7 @@ When run, it might produce logs like:
  [TRACE] system() child error: 256 (exited with value 1)
  [TRACE] my_qx(): blah ...
  [TRACE] my_qx() child error: 0 (exited with value 0)
+ [TRACE] my_qx() output (200 bytes): Command output...
 
 
 =head1 DESCRIPTION
