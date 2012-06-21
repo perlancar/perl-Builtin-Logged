@@ -65,7 +65,7 @@ sub import {
  use Builtin::Logged qw(system my_qx);
 
  system "blah ...";
- my $out = my_qx(blah ...);
+ my $out = my_qx("blah ...");
 
 When run, it might produce logs like:
 
