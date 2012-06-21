@@ -19,7 +19,7 @@ sub system {
     CORE::system(@_);
     if ($log->is_trace) {
         $log->tracef("system() child error: %d (%s)",
-                     $?, explain_child_error($?));
+                     $?, explain_child_error($?)) if $?;
     }
 }
 
@@ -34,7 +34,7 @@ sub my_qx {
     if ($wa) { @output = qx($arg) } else { $output = qx($arg) }
     if ($log->is_trace) {
         $log->tracef("my_qx() child error: %d (%s)",
-                     $?, explain_child_error($?));
+                     $?, explain_child_error($?)) if $?;
         if ($wa) { $output = join("", @output) }
         $log->tracef("my_qx() output (%d bytes%s): %s",
                      length($output),
