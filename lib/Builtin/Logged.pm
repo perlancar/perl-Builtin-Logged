@@ -26,7 +26,7 @@ sub system {
 sub my_qx {
     my $arg = join " ", @_;
     if ($log->is_trace) {
-        $log->tracef("my_qx(): %s", $_);
+        $log->tracef("my_qx(): %s", $arg);
     }
     my $output = qx($arg);
     if ($log->is_trace) {
