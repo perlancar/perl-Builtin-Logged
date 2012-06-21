@@ -1,5 +1,14 @@
 Revision history for Builtin-Logged
 
-0.01    2012-03-28
+0.02    2012-06-21 (SHARYANTO)
+
+        - Fix my_qx() which didn't return result :p
+
+        - Only log error if there is error.
+
+        - Add tests.
+
+
+0.01    2012-03-28 (SHARYANTO)
 
         First release.
