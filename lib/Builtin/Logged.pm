@@ -28,16 +28,21 @@ sub my_qx {
     if ($log->is_trace) {
         $log->tracef("my_qx(): %s", $arg);
     }
-    my $output = qx($arg);
+    my $wa = wantarray;
+    my $output;
+    my @output;
+    if ($wa) { @output = qx($arg) } else { $output = qx($arg) }
     if ($log->is_trace) {
         $log->tracef("my_qx() child error: %d (%s)",
                      $?, explain_child_error($?));
+        if ($wa) { $output = join("", @output) }
         $log->tracef("my_qx() output (%d bytes%s): %s",
                      length($output),
                      (length($output) > $Max_Log_Output ?
                          ", $Max_Log_Output shown" : ""),
                      ellipsis($output, $Max_Log_Output+3));
     }
+    $wa ? @output : $output;
 }
 
 sub import {
