@@ -16,11 +16,12 @@ sub system {
     if ($log->is_trace) {
         $log->tracef("system(): %s", join(" ", @_));
     }
-    CORE::system(@_);
+    my $res = CORE::system(@_);
     if ($log->is_trace) {
         $log->tracef("system() child error: %d (%s)",
                      $?, explain_child_error($?)) if $?;
     }
+    $res;
 }
 
 sub my_qx {
