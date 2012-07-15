@@ -1,5 +1,11 @@
 Revision history for Builtin-Logged
 
+0.03    2012-07-15 (SHARYANTO)
+
+        No functional changes. Module name changed to Log::Any::For::Builtins,
+        but old module and dist name retained.
+
+
 0.02    2012-06-21 (SHARYANTO)
 
         - Fix my_qx() which didn't return result :p
