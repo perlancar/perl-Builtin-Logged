@@ -1,5 +1,14 @@
 Revision history for Builtin-Logged
 
+0.05    2012-07-24 (SHARYANTO)
+
+        No functional changes.
+
+        [BUG FIXES]
+
+        - Forgot to import explain_child_error().
+
+
 0.04    2012-07-24 (SHARYANTO)
 
         No functional changes.
