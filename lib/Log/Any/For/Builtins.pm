@@ -5,6 +5,7 @@ use strict;
 use warnings;
 use Log::Any '$log';
 use SHARYANTO::String::Util qw(ellipsis);
+use SHARYANTO::Proc::ChildError qw(explain_child_error);
 
 # VERSION
 
