@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 use Log::Any '$log';
+use SHARYANTO::String::Util qw(ellipsis);
 
 # VERSION
 
