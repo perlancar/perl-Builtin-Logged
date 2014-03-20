@@ -1,5 +1,12 @@
 Revision history for Builtin-Logged
 
+0.06    2014-03-20 (SHARYANTO)
+
+        - No functional changes.
+
+        - Add missing prereq to Log::Any [CT].
+
+
 0.05    2012-07-24 (SHARYANTO)
 
         - No functional changes.
