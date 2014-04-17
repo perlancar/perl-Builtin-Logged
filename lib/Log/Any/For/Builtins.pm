@@ -4,8 +4,9 @@ use 5.010001;
 use strict;
 use warnings;
 use Log::Any '$log';
+
+use Proc::ChildError qw(explain_child_error);
 use SHARYANTO::String::Util qw(ellipsis);
-use SHARYANTO::Proc::ChildError qw(explain_child_error);
 
 # VERSION
 
