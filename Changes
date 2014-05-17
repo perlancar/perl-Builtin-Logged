@@ -1,5 +1,12 @@
 Revision history for Builtin-Logged
 
+0.08    2014-05-17 (SHARYANTO)
+
+        - No functional changes.
+
+        - [dist] Fix version of dependency (Proc::ChildError).
+
+
 0.07    2014-05-17 (SHARYANTO)
 
         - No functional changes.
