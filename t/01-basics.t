@@ -6,7 +6,7 @@ use warnings;
 
 use Builtin::Logged qw(system my_qx);
 use File::chdir;
-use File::Slurp;
+use File::Slurp::Tiny qw(write_file);
 use File::Temp qw(tempdir tempfile);
 use File::Which qw(which);
 use Test::More 0.96;
