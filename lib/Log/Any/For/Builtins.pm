@@ -1,14 +1,15 @@
 package Log::Any::For::Builtins;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
 use Log::Any '$log';
 
 use Proc::ChildError qw(explain_child_error);
-use SHARYANTO::String::Util qw(ellipsis);
-
-# VERSION
+use String::Trim::More qw(ellipsis);
 
 our $Max_Log_Output = 1024;
 
