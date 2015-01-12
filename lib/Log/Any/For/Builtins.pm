@@ -65,7 +65,7 @@ sub import {
 }
 
 1;
-# ABSTRACT: Log builtin functions
+# ABSTRACT: (DEPRECATED) Log builtin functions
 
 =head1 SYNOPSIS
 
@@ -84,6 +84,10 @@ When run, it might produce logs like:
 
 
 =head1 DESCRIPTION
+
+B<DEPRECATED:> This module is now deprecated in favor of L<IPC::System::Options>
+(which can do logging and more). This module will be removed from CPAN once
+there are no reverse dependencies on it.
 
 This module provides replacement for some builtin functions (and operators). The
 replacement behaves exactly the same, except that they are peppered with log
