@@ -6,7 +6,7 @@ package Log::Any::For::Builtins;
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any '$log';
+use Log::Any::IfLOG '$log';
 
 use Proc::ChildError qw(explain_child_error);
 use String::Trim::More qw(ellipsis);
