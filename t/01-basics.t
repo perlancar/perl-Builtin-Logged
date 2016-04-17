@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-use Builtin::Logged qw(system my_qx);
+use Builtin::Logged qw(system readpipe);
 use File::chdir;
 use File::Slurp::Tiny qw(write_file);
 use File::Temp qw(tempdir tempfile);
@@ -40,22 +40,40 @@ subtest "failed system exit code" => sub {
     ok($?);
 };
 
-subtest "my_qx in scalar context" => sub {
-    my $res = my_qx("ls a b");
+subtest "readpipe in scalar context" => sub {
+    my $res;
+
+    $res = readpipe("ls a b");
+    like($res, qr/a.+b/s);
+    is($?, 0);
+
+    $res = `ls a b`;
     like($res, qr/a.+b/s);
     is($?, 0);
 };
 
-subtest "my_qx in array context" => sub {
-    my @res = my_qx("ls a b");
+subtest "readpipe in array context" => sub {
+    my @res;
+
+    @res = readpipe("ls a b");
+    is($?, 0);
+    is(scalar(@res), 2);
+
+    @res = `ls a b`;
     is($?, 0);
     is(scalar(@res), 2);
 };
 
-# XXX my_qx also accepts array argument
+# XXX readpipe also accepts array argument
 
-subtest "my_qx exit code" => sub {
-    my $res = my_qx($rand);
+subtest "readpipe exit code" => sub {
+    my $res;
+
+    $res = readpipe $rand;
+    ok(!defined($res));
+    ok($?);
+
+    $res = `$rand`;
     ok(!defined($res));
     ok($?);
 };
