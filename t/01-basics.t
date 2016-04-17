@@ -6,7 +6,7 @@ use warnings;
 
 use Builtin::Logged qw(system readpipe);
 use File::chdir;
-use File::Slurp::Tiny qw(write_file);
+use File::Slurper qw(write_text);
 use File::Temp qw(tempdir tempfile);
 use File::Which qw(which);
 use Test::More 0.96;
@@ -19,9 +19,9 @@ plan skip_all => "Need ls and true commands"
 
 my $dir = tempdir(CLEANUP=>1);
 $CWD = $dir;
-write_file("a", 1);
-write_file("b", 1);
-write_file("c d", 1);
+write_text("a", 1);
+write_text("b", 1);
+write_text("c d", 1);
 
 my $rand = UUID::Random::generate;
 

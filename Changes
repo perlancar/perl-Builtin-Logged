@@ -1,5 +1,12 @@
 Revision history for Builtin-Logged
 
+0.12    2016-04-17 (PERLANCAR)
+
+	- Change my_qx() to readpipe(), to be able to override backtick operator
+          (perl indeed provides a way to override backtick this way). But
+          'my_qx' will be supported for a while for backward compatibility.
+
+
 0.11    2015-08-17 (PERLANCAR)
 
 	- No functional changes.
