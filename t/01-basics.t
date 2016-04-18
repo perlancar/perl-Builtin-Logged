@@ -83,7 +83,7 @@ subtest "readpipe exit code" => sub {
 
     diag "Executing `$rand`";
     $res = `$rand`;
-    ok(!defined($res));
+    ok(!defined($res)) or diag "res=", explain($res);
     ok($?);
 };
 
