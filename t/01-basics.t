@@ -26,16 +26,19 @@ write_text("c d", 1);
 my $rand = UUID::Random::generate;
 
 subtest "system with scalar argument" => sub {
+    diag "Executing system(ls a,b)";
     system("ls a b");
     is($?, 0);
 };
 
 subtest "system with array argument" => sub {
+    diag "Executing system(ls, a, b, c d)";
     system("ls", "a", "b", "c d");
     is($?, 0);
 };
 
 subtest "failed system exit code" => sub {
+    diag "Executing system($rand)";
     system($rand);
     ok($?);
 };
@@ -43,10 +46,12 @@ subtest "failed system exit code" => sub {
 subtest "readpipe in scalar context" => sub {
     my $res;
 
+    diag "Executing readpipe(ls a b)";
     $res = readpipe("ls a b");
     like($res, qr/a.+b/s);
     is($?, 0);
 
+    diag "Executing `ls a b`";
     $res = `ls a b`;
     like($res, qr/a.+b/s);
     is($?, 0);
@@ -55,10 +60,12 @@ subtest "readpipe in scalar context" => sub {
 subtest "readpipe in array context" => sub {
     my @res;
 
+    diag "Executing readpipe(ls a b)";
     @res = readpipe("ls a b");
     is($?, 0);
     is(scalar(@res), 2);
 
+    diag "Executing `ls a b`";
     @res = `ls a b`;
     is($?, 0);
     is(scalar(@res), 2);
@@ -69,10 +76,12 @@ subtest "readpipe in array context" => sub {
 subtest "readpipe exit code" => sub {
     my $res;
 
+    diag "Executing readpipe($rand)";
     $res = readpipe $rand;
     ok(!defined($res));
     ok($?);
 
+    diag "Executing `$rand`";
     $res = `$rand`;
     ok(!defined($res));
     ok($?);
