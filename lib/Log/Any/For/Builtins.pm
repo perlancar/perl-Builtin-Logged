@@ -38,11 +38,12 @@ sub readpipe {
         $log->tracef("readpipe() child error: %d (%s)",
                      $?, explain_child_error()) if $?;
         if ($wa) { $output = join("", @output) }
+        my $len = length($output // '');
         $log->tracef("readpipe() output (%d bytes%s): %s",
-                     length($output),
-                     (length($output) > $Max_Log_Output ?
+                     $len,
+                     ($len > $Max_Log_Output ?
                          ", $Max_Log_Output shown" : ""),
-                     ellipsis($output, $Max_Log_Output+3));
+                     ellipsis($output // '', $Max_Log_Output+3));
     }
     $wa ? @output : $output;
 }
