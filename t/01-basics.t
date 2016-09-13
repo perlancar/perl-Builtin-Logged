@@ -83,8 +83,13 @@ subtest "readpipe exit code" => sub {
 
     diag "Executing `$rand`";
     $res = `$rand`;
-    ok(!defined($res)) or diag "res=", explain($res);
-    ok($?);
+    if ($] lt "5.020") {
+        # in perl < v5.20, res is an empty string [CT]
+        ok(!defined($res) || $res eq '') or diag "res=", explain($res);
+    } else {
+        ok(!defined($res)) or diag "res=", explain($res);
+        ok($?);
+    }
 };
 
 $CWD = "/";
