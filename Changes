@@ -1,5 +1,12 @@
 Revision history for Builtin-Logged
 
+0.15    2016-09-14 (PERLANCAR)
+
+	- No functional changes.
+
+	- [test] Avoid failure reports in perl < 5.20.
+
+
 0.14    2016-09-06 (PERLANCAR)
 
         - No functional changes.
